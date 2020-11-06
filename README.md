@@ -138,5 +138,5 @@ SP_LCD拥有一块1.14’寸LCD，4 线 SPI 接口控制，8P FPC(0.5mm 间距)�
 
 ## LICENSE
 
-See [LICENSE](LICENSE) file
+See [LICENSE](LICENSE.md) file
 
