@@ -1,3 +1,5 @@
+<img src="img/icon_sipeed2.png" style="zoom: 80%;" />
+
 # SP_LCD1.14 模块使用说明
 
 ## 介绍
@@ -19,7 +21,9 @@ SP_LCD拥有一块1.14’寸LCD，4 线 SPI 接口控制，8P FPC(0.5mm 间距)�
 | 2.5-4,8V |  3.3V   |
 |   GND    |   GND   |
 
+## 引脚图
 
+<img src="img/sp_lcd1.14_back.jpg" style="zoom:80%;" />
 
 ## MCU端口配置
 
@@ -131,3 +135,8 @@ SP_LCD拥有一块1.14’寸LCD，4 线 SPI 接口控制，8P FPC(0.5mm 间距)�
 * MaixPy
 
   <img src="img/sp_lcd1.14_py.jpg" alt="sp_lcd1.14_py" style="zoom:67%;" />
+
+## LICENSE
+
+See [LICENSE](LICENSE) file
+

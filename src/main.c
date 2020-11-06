@@ -41,7 +41,6 @@ int main(void)
     ips_lcd_init();
     ips_lcd_color_bar_test();
     LCD_ShowPicture(0, 0, LCD_W, LCD_H, gImage_nanke);
-    LCD_DrawRectangle(0, 0, LCD_W - 1, LCD_H - 1, RED);
 
     printk(LOG_COLOR_W "-------------END---------------\r\n");
     return 0;
