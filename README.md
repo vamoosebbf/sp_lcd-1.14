@@ -128,10 +128,10 @@ SP_LCD 拥有一块1.14’寸 LCD，4 线 SPI 接口控制，8P FPC(0.5mm 间距
 
 ## 运行环境
 
-|  语言  |  开发板  | SDK/固件版本                   |
-| :----: | :------: | ------------------------------ |
+|  语言  |  开发板  |          SDK/固件版本          |
+| :----: | :------: | :----------------------------: |
 |   C    | MaixCube | kendryte-standalone-sdk v0.5.6 |
-| MaixPy | MaixCube | maixpy v0.5.1                  |
+| MaixPy | MaixCube |         maixpy v0.5.1          |
 
 ## 运行结果
 
