@@ -4,7 +4,7 @@
 
 ## 介绍
 
-SP_LCD拥有一块1.14’寸LCD，4 线 SPI 接口控制，8P FPC(0.5mm 间距)接口的 TFT 液晶屏， 180°可视角，SP_MOD连接口。
+SP_LCD 拥有一块1.14’寸 LCD，4 线 SPI 接口控制，8P FPC(0.5mm 间距)接口的 TFT 液晶屏，180°可视角，SP_MOD 连接方式。
 
 <img src="img/sp_lcd.png" alt="sp_lcd" style="zoom:50%;" />
 
@@ -25,13 +25,13 @@ SP_LCD拥有一块1.14’寸LCD，4 线 SPI 接口控制，8P FPC(0.5mm 间距)�
 
 <img src="img/sp_lcd1.14_back.jpg" style="zoom:80%;" />
 
-## MCU端口配置
+## MCU 端口配置
 
-### IO口配置
+### IO 口配置
 
-将MCU原理图对应的IO口配置为SPI功能引脚
+将 MCU 原理图对应的 IO 口配置为 SPI 功能引脚。
 
-* C示例
+* C 示例
 
   ```c
   fpioa_set_function(SPI_IPS_LCD_CS_PIN_NUM, FUNC_SPI1_SS0);   // CS
@@ -51,7 +51,7 @@ SP_LCD拥有一块1.14’寸LCD，4 线 SPI 接口控制，8P FPC(0.5mm 间距)�
   gpiohs_set_pin(SPI_IPS_LCD_BL_GPIO_NUM, GPIO_PV_HIGH);
   ```
 
-* MaixPy示例
+* MaixPy 示例
 
   ```python
   # define SPI_IPS_LCD_SS_PIN_NUM 20
@@ -69,32 +69,32 @@ SP_LCD拥有一块1.14’寸LCD，4 线 SPI 接口控制，8P FPC(0.5mm 间距)�
   rst = GPIO(GPIO.GPIOHS7, GPIO.OUT)
   ```
 
-### SPI初始化
+### SPI 初始化
 
-* C示例
+* C 示例
 
   ```c
   spi_init(1, SPI_WORK_MODE_0, SPI_FF_STANDARD, DATALENGTH, 0);
   ```
 
-* MaixPy示例
+* MaixPy 示例
 
   ```python
   spi1 = SPI(SPI.SPI1, mode=SPI.MODE_MASTER, baudrate=600 * 1000,
                  polarity=0, phase=0, bits=8, firstbit=SPI.MSB, sck=21, mosi=8)
   ```
 
-## SP_LCD1.14 配置
+## SP_LCD-1.14 配置
 
 ### 使用方式
 
 * 流程
 
   1. 初始化配置
-  2. 创建image并填充图像
+  2. 创建 image 并填充图像
   3. 发送图像
 
-* C示例
+* C 示例
 
   ```c
   ips_lcd_init();
@@ -103,9 +103,9 @@ SP_LCD拥有一块1.14’寸LCD，4 线 SPI 接口控制，8P FPC(0.5mm 间距)�
   LCD_DrawRectangle(0, 0, LCD_W - 1, LCD_H - 1, RED);
   ```
 
-* MaixPy示例
+* MaixPy 示例
 
-  主要是配置其需要使用的SPI，还有屏幕的宽和高（240,135两个数为最大），IPS_MODE则是设置屏幕的方向，0,1为水平，2,3为竖直
+  主要是配置其需要使用的 SPI，还有屏幕的宽和高（240/135两个数为最大），IPS_MODE 则是设置屏幕的方向，0/1为水平，2/3为竖直。
 
   ```python
   ips = SpiIps(spi1, cs, dc, rst, busy, IPS_WIDTH, IPS_HEIGHT, IPS_MODE)
@@ -126,6 +126,13 @@ SP_LCD拥有一块1.14’寸LCD，4 线 SPI 接口控制，8P FPC(0.5mm 间距)�
   
   ```
 
+## 运行环境
+
+|  语言  |  开发板  | SDK/固件版本                   |
+| :----: | :------: | ------------------------------ |
+|   C    | MaixCube | kendryte-standalone-sdk v0.5.6 |
+| MaixPy | MaixCube | maixpy v0.5.1                  |
+
 ## 运行结果
 
 * C
@@ -138,5 +145,5 @@ SP_LCD拥有一块1.14’寸LCD，4 线 SPI 接口控制，8P FPC(0.5mm 间距)�
 
 ## LICENSE
 
-See [LICENSE](LICENSE.md) file
+See [LICENSE](LICENSE.md) file.
 
