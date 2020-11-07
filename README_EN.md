@@ -2,7 +2,7 @@
 
 # SP_LCD-1.14 Module User Giude
 
-[中文](READMD.md)
+[中文](README.md)
 
 ## Introduce
 
