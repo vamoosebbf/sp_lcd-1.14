@@ -1,14 +1,17 @@
 <img src="img/icon_sipeed2.png" style="zoom: 80%;" />
 
-# SP_LCD-1.14 模块使用说明
+# SP_LCD-1.14 Module User Guide
 
-## 介绍
+[中文](README_CN.md)
 
-SP_LCD 拥有一块1.14’寸 LCD，4 线 SPI 接口控制，8P FPC(0.5mm 间距)接口的 TFT 液晶屏，180°可视角，SP_MOD 连接方式。
+## Introduce
+
+SP_LCD has a 1.14 'inch LCD, 4-line SPI interface control, 8P FPC(0.5mm interval) interface TFT LCD, 180° Angle of view, using SP_MOD connection.
 
 <img src="img/sp_lcd.png" alt="sp_lcd" style="zoom:50%;" />
+*See [Module Spacification](doc/SP-LCD1.14规格书V1.0.pdf) for more information.*
 
-## 接线方式
+## Mode of connection
 
 |   MCU    | SP_EINK |
 | :------: | :-----: |
@@ -21,17 +24,17 @@ SP_LCD 拥有一块1.14’寸 LCD，4 线 SPI 接口控制，8P FPC(0.5mm 间距
 | 2.5-4,8V |  3.3V   |
 |   GND    |   GND   |
 
-## 引脚图
+## Pin figure
 
 <img src="img/sp_lcd1.14_back.jpg" style="zoom:80%;" />
 
-## MCU 配置
+## MCU configuration
 
-### IO 口配置
+### IO port configuration
 
-将 MCU 原理图对应的 IO 口配置为 SPI 功能引脚。
+Configure IO port corresponding to MCU as SPI function pin.
 
-* C 示例
+* C
 
   ```c
   fpioa_set_function(SPI_IPS_LCD_CS_PIN_NUM, FUNC_SPI1_SS0);   // CS
@@ -51,7 +54,7 @@ SP_LCD 拥有一块1.14’寸 LCD，4 线 SPI 接口控制，8P FPC(0.5mm 间距
   gpiohs_set_pin(SPI_IPS_LCD_BL_GPIO_NUM, GPIO_PV_HIGH);
   ```
 
-* MaixPy 示例
+* MaixPy
 
   ```python
   # define SPI_IPS_LCD_SS_PIN_NUM 20
@@ -69,32 +72,32 @@ SP_LCD 拥有一块1.14’寸 LCD，4 线 SPI 接口控制，8P FPC(0.5mm 间距
   rst = GPIO(GPIO.GPIOHS7, GPIO.OUT)
   ```
 
-### SPI 初始化
+### SPI initialization
 
-* C 示例
+* C
 
   ```c
   spi_init(1, SPI_WORK_MODE_0, SPI_FF_STANDARD, DATALENGTH, 0);
   ```
 
-* MaixPy 示例
+* MaixPy
 
   ```python
   spi1 = SPI(SPI.SPI1, mode=SPI.MODE_MASTER, baudrate=600 * 1000,
                  polarity=0, phase=0, bits=8, firstbit=SPI.MSB, sck=21, mosi=8)
   ```
 
-## SP_LCD-1.14 配置
+## SP_LCD-1.14 configuration
 
-### 使用方式
+### Usage
 
-* 流程
+* Process
 
-  1. 初始化配置
-  2. 创建 image 并填充图像
-  3. 发送图像
+  1. Initialization
+  2. Create an image an fill it
+  3. Send the image data
 
-* C 示例
+* C
 
   ```c
   ips_lcd_init();
@@ -102,9 +105,9 @@ SP_LCD 拥有一块1.14’寸 LCD，4 线 SPI 接口控制，8P FPC(0.5mm 间距
   LCD_ShowPicture(0, 0, LCD_W, LCD_H, gImage_nanke);
   ```
 
-* MaixPy 示例
+* MaixPy
 
-  主要是配置其需要使用的 SPI，屏幕的宽和高（240/135两个数为最大），IPS_MODE 则是用来决定屏幕的方向，0/1为水平，2/3为竖直。
+  It is mainly used to configure the SPI it needs. The width and height of the screen (240/135 is the maximum value), IPS_MODE is used to set the direction of the screen, 0/1 is horizontal, and 2/3 is vertical.
 
   ```python
   ips = SpiIps(spi1, cs, dc, rst, busy, IPS_WIDTH, IPS_HEIGHT, IPS_MODE)
@@ -124,14 +127,14 @@ SP_LCD 拥有一块1.14’寸 LCD，4 线 SPI 接口控制，8P FPC(0.5mm 间距
   ips.display(img)
   ```
 
-## 运行环境
+## Runtime environments
 
-|  语言  |  开发板  |          SDK/固件版本          |
-| :----: | :------: | :----------------------------: |
-|   C    | MaixCube | kendryte-standalone-sdk v0.5.6 |
-| MaixPy | MaixCube |         maixpy v0.5.1          |
+| Language |  Boards  |      SDK/Firmware version      |
+| :------: | :------: | :----------------------------: |
+|    C     | MaixCube | kendryte-standalone-sdk v0.5.6 |
+|  MaixPy  | MaixCube |         maixpy v0.5.1          |
 
-## 运行结果
+## Result
 
 * C
 
@@ -141,12 +144,12 @@ SP_LCD 拥有一块1.14’寸 LCD，4 线 SPI 接口控制，8P FPC(0.5mm 间距
 
   <img src="img/sp_lcd1.14_py.jpg" alt="sp_lcd1.14_py" style="zoom:67%;" />
 
-## 许可
+## LICENSE
 
-请查看 [LICENSE](LICENSE.md) 文件.
+See [LICENSE](LICENSE.md) file.
 
-## 相关信息
+## Other information
 
-|  版本号  |  编辑人 |
-| :----: | :------: | 
-|   v0.1    | 方秋蓉 | 
+| Version |    Editor    |
+| :-----: | :----------: |
+|  v0.1   | Fang Qiurong |

@@ -1,17 +1,16 @@
 <img src="img/icon_sipeed2.png" style="zoom: 80%;" />
 
-# SP_LCD-1.14 Module User Giude
+# SP_LCD-1.14 模块使用说明
 
-[中文](README.md)
+[English](README.md)
 
-## Introduce
+## 介绍
 
-SP_LCD has a 1.14 'inch LCD, 4-line SPI interface control, 8P FPC(0.5mm interval) interface TFT LCD, 180° Angle of view, using SP_MOD connection.
+SP_LCD 拥有一块1.14’寸 LCD，4 线 SPI 接口控制，8P FPC(0.5mm 间距)接口的 TFT 液晶屏，180°可视角，SP_MOD 连接方式。
 
 <img src="img/sp_lcd.png" alt="sp_lcd" style="zoom:50%;" />
-*See [Module Spacification](doc/SP-LCD1.14 规格书 V1.0.pdf) for more information*
 
-## Mode of connection
+## 接线方式
 
 |   MCU    | SP_EINK |
 | :------: | :-----: |
@@ -24,17 +23,17 @@ SP_LCD has a 1.14 'inch LCD, 4-line SPI interface control, 8P FPC(0.5mm interval
 | 2.5-4,8V |  3.3V   |
 |   GND    |   GND   |
 
-## Pin figure
+## 引脚图
 
 <img src="img/sp_lcd1.14_back.jpg" style="zoom:80%;" />
 
-## MCU configuration
+## MCU 配置
 
-### IO port configuration
+### IO 口配置
 
-Configure IO port corresponding to MCU as SPI function pin.
+将 MCU 原理图对应的 IO 口配置为 SPI 功能引脚。
 
-* C
+* C 示例
 
   ```c
   fpioa_set_function(SPI_IPS_LCD_CS_PIN_NUM, FUNC_SPI1_SS0);   // CS
@@ -54,7 +53,7 @@ Configure IO port corresponding to MCU as SPI function pin.
   gpiohs_set_pin(SPI_IPS_LCD_BL_GPIO_NUM, GPIO_PV_HIGH);
   ```
 
-* MaixPy
+* MaixPy 示例
 
   ```python
   # define SPI_IPS_LCD_SS_PIN_NUM 20
@@ -72,32 +71,32 @@ Configure IO port corresponding to MCU as SPI function pin.
   rst = GPIO(GPIO.GPIOHS7, GPIO.OUT)
   ```
 
-### SPI initialization
+### SPI 初始化
 
-* C
+* C 示例
 
   ```c
   spi_init(1, SPI_WORK_MODE_0, SPI_FF_STANDARD, DATALENGTH, 0);
   ```
 
-* MaixPy
+* MaixPy 示例
 
   ```python
   spi1 = SPI(SPI.SPI1, mode=SPI.MODE_MASTER, baudrate=600 * 1000,
                  polarity=0, phase=0, bits=8, firstbit=SPI.MSB, sck=21, mosi=8)
   ```
 
-## SP_LCD-1.14 configuration
+## SP_LCD-1.14 配置
 
-### Usage
+### 使用方式
 
-* Process
+* 流程
 
-  1. Initialization
-  2. Create an image an fill it
-  3. Send the image data
+  1. 初始化配置
+  2. 创建 image 并填充图像
+  3. 发送图像
 
-* C
+* C 示例
 
   ```c
   ips_lcd_init();
@@ -105,9 +104,9 @@ Configure IO port corresponding to MCU as SPI function pin.
   LCD_ShowPicture(0, 0, LCD_W, LCD_H, gImage_nanke);
   ```
 
-* MaixPy
+* MaixPy 示例
 
-  It is mainly used to configure the SPI it needs. The width and height of the screen (240/135 is the maximum value), IPS_MODE is used to set the direction of the screen, 0/1 is horizontal, and 2/3 is vertical.
+  主要是配置其需要使用的 SPI，屏幕的宽和高（240/135两个数为最大），IPS_MODE 则是用来决定屏幕的方向，0/1为水平，2/3为竖直。
 
   ```python
   ips = SpiIps(spi1, cs, dc, rst, busy, IPS_WIDTH, IPS_HEIGHT, IPS_MODE)
@@ -127,14 +126,14 @@ Configure IO port corresponding to MCU as SPI function pin.
   ips.display(img)
   ```
 
-## Runtime environments
+## 运行环境
 
-| Language |  Boards  |      SDK/Firmware version      |
-| :------: | :------: | :----------------------------: |
-|    C     | MaixCube | kendryte-standalone-sdk v0.5.6 |
-|  MaixPy  | MaixCube |         maixpy v0.5.1          |
+|  语言  |  开发板  |          SDK/固件版本          |
+| :----: | :------: | :----------------------------: |
+|   C    | MaixCube | kendryte-standalone-sdk v0.5.6 |
+| MaixPy | MaixCube |         maixpy v0.5.1          |
 
-## Result
+## 运行结果
 
 * C
 
@@ -144,12 +143,12 @@ Configure IO port corresponding to MCU as SPI function pin.
 
   <img src="img/sp_lcd1.14_py.jpg" alt="sp_lcd1.14_py" style="zoom:67%;" />
 
-## LICENSE
+## 许可
 
-See [LICENSE](LICENSE.md) file.
+请查看 [LICENSE](LICENSE.md) 文件.
 
-## Other information
+## 相关信息
 
-| Version |    Editor    |
-| :-----: | :----------: |
-|  v0.1   | Fang Qiurong |
+|  版本号  |  编辑人 |
+| :----: | :------: |
+|   v0.1    | 方秋蓉 |
