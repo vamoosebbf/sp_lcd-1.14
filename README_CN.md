@@ -10,6 +10,8 @@ SP_LCD 拥有一块1.14’寸 LCD，4 线 SPI 接口控制，8P FPC(0.5mm 间距
 
 <img src="img/sp_lcd.png" alt="sp_lcd" style="zoom:50%;" />
 
+*查看[模块规格书](doc/doc/SP-LCD1.14规格书V1.0.pdf)获取更多特性信息*
+
 ## 接线方式
 
 |   MCU    | SP_EINK |
