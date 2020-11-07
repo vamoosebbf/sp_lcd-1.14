@@ -1,6 +1,6 @@
 <img src="img/icon_sipeed2.png" style="zoom: 80%;" />
 
-# SP_LCD1.14 模块使用说明
+# SP_LCD-1.14 模块使用说明
 
 ## 介绍
 
@@ -147,8 +147,8 @@ SP_LCD 拥有一块1.14’寸 LCD，4 线 SPI 接口控制，8P FPC(0.5mm 间距
 
 See [LICENSE](LICENSE.md) file.
 
-## 相关·信息
+## 相关信息
 
 |  版本号  |  编辑人 |
 | :----: | :------: | 
-|   0.1    | 方秋蓉 | 
+|   v0.1    | 方秋蓉 | 
