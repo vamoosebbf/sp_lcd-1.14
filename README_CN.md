@@ -1,4 +1,4 @@
-<img src="img/icon_sipeed2.png" style="zoom: 70%;" />
+<img src="img/icon_sipeed2.png" style="zoom: 80%;" />
 
 # SP_LCD-1.14 模块使用说明
 
