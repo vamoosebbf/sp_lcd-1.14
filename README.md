@@ -142,11 +142,11 @@ Configure IO port corresponding to MCU as SPI function pin.
 
 * C
 
-  <img src="img/sp_lcd1.14_c.jpg" style="zoom:67%;" />
+  <img src="img/sp_lcd1.14_c.png" style="zoom:67%;" />
 
 * MaixPy
 
-  <img src="img/sp_lcd1.14_py.jpg" alt="sp_lcd1.14_py" style="zoom:67%;" />
+  <img src="img/sp_lcd1.14_py.png" alt="sp_lcd1.14_py" style="zoom:67%;" />
 
 ## LICENSE
 
