@@ -141,7 +141,7 @@ SP_LCD 拥有一块1.14’寸 LCD，4 线 SPI 接口控制，8P FPC(0.5mm 间距
 
 * C
 
-  <img src="img/sp_lcd1.14_c.png" style="zoom:60%;" />
+  <img src="img/sp_lcd1.14_c.png" style="zoom:55%;" />
 
 * MaixPy
 
