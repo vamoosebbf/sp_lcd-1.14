@@ -25,7 +25,7 @@ SP_LCD 拥有一块1.14’寸 LCD，4 线 SPI 接口控制，8P FPC(0.5mm 间距
 
 <img src="img/sp_lcd1.14_back.jpg" style="zoom:80%;" />
 
-## MCU 端口配置
+## MCU 配置
 
 ### IO 口配置
 
@@ -100,12 +100,11 @@ SP_LCD 拥有一块1.14’寸 LCD，4 线 SPI 接口控制，8P FPC(0.5mm 间距
   ips_lcd_init();
   ips_lcd_color_bar_test();
   LCD_ShowPicture(0, 0, LCD_W, LCD_H, gImage_nanke);
-  LCD_DrawRectangle(0, 0, LCD_W - 1, LCD_H - 1, RED);
   ```
 
 * MaixPy 示例
 
-  主要是配置其需要使用的 SPI，还有屏幕的宽和高（240/135两个数为最大），IPS_MODE 则是设置屏幕的方向，0/1为水平，2/3为竖直。
+  主要是配置其需要使用的 SPI，屏幕的宽和高（240/135两个数为最大），IPS_MODE 则是用来决定屏幕的方向，0/1为水平，2/3为竖直。
 
   ```python
   ips = SpiIps(spi1, cs, dc, rst, busy, IPS_WIDTH, IPS_HEIGHT, IPS_MODE)
@@ -123,7 +122,6 @@ SP_LCD 拥有一块1.14’寸 LCD，4 线 SPI 接口控制，8P FPC(0.5mm 间距
   print('ips test')
   
   ips.display(img)
-  
   ```
 
 ## 运行环境
@@ -143,7 +141,7 @@ SP_LCD 拥有一块1.14’寸 LCD，4 线 SPI 接口控制，8P FPC(0.5mm 间距
 
   <img src="img/sp_lcd1.14_py.jpg" alt="sp_lcd1.14_py" style="zoom:67%;" />
 
-## LICENSE
+## 许可
 
 See [LICENSE](LICENSE.md) file.
 
