@@ -9,7 +9,7 @@
 SP_LCD has a 1.14 'inch LCD, 4-line SPI interface control, 8P FPC(0.5mm interval) interface TFT LCD, 180° Angle of view, using SP_MOD connection.
 
 <img src="img/sp_lcd.png" alt="sp_lcd" style="zoom:50%;" />
-*See[Module Spacification](doc/SP-LCD1.14规格书V1.0.pdf)for mmore information.*
+*See[Spacification](doc/SP-LCD1.14规格书V1.0.pdf)for more information.*
 
 ## Mode of connection
 
