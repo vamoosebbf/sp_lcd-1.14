@@ -11,22 +11,17 @@ static const char *TAG = "lcd";
 
 void ips_lcd_io_mux_init(void)
 {
-    fpioa_set_function(SPI_IPS_LCD_CS_PIN_NUM, FUNC_SPI1_SS0);   // CS
-    fpioa_set_function(SPI_IPS_LCD_SCK_PIN_NUM, FUNC_SPI1_SCLK); // SCLK
-    fpioa_set_function(SPI_IPS_LCD_MOSI_PIN_NUM, FUNC_SPI1_D0);  // MOSI
-    // fpioa_set_function(SPI_IPS_LCD_MISO_PIN_NUM, FUNC_SPI1_D1);  // MISO
+    fpioa_set_function(SPI_IPS_LCD_CS_PIN_NUM, FUNC_SPI1_SS0);                            // SPI_IPS_LCD_CS_PIN_NUM: 20;
+    fpioa_set_function(SPI_IPS_LCD_SCK_PIN_NUM, FUNC_SPI1_SCLK);                          // SPI_IPS_LCD_SCK_PIN_NUM: 21;
+    fpioa_set_function(SPI_IPS_LCD_MOSI_PIN_NUM, FUNC_SPI1_D0);                           // SPI_IPS_LCD_MOSI_PIN_NUM: 8;
+    fpioa_set_function(SPI_IPS_LCD_DC_PIN_NUM, FUNC_GPIOHS0 + SPI_IPS_LCD_DC_GPIO_NUM);   // SPI_IPS_LCD_DC_PIN_NUM: 15; SPI_IPS_LCD_DC_GPIO_NUM: 15;
+    fpioa_set_function(SPI_IPS_LCD_RST_PIN_NUM, FUNC_GPIOHS0 + SPI_IPS_LCD_RST_GPIO_NUM); // SPI_IPS_LCD_RST_PIN_NUM: 7; SPI_IPS_LCD_RST_GPIO_NUM: 7;
+    fpioa_set_function(SPI_IPS_LCD_BL_PIN_NUM, FUNC_GPIOHS0 + SPI_IPS_LCD_BL_GPIO_NUM);   // SPI_IPS_LCD_BL_PIN_NUM: 6; SPI_IPS_LCD_BL_GPIO_NUM: 6;
 
-    fpioa_set_function(SPI_IPS_LCD_DC_PIN_NUM, FUNC_GPIOHS0 + SPI_IPS_LCD_DC_GPIO_NUM);   // D2
-    fpioa_set_function(SPI_IPS_LCD_RST_PIN_NUM, FUNC_GPIOHS0 + SPI_IPS_LCD_RST_GPIO_NUM); // D3
-    fpioa_set_function(SPI_IPS_LCD_BL_PIN_NUM, FUNC_GPIOHS0 + SPI_IPS_LCD_BL_GPIO_NUM);   // D2
-
+    // set gpiohs work mode to output mode
     gpiohs_set_drive_mode(SPI_IPS_LCD_DC_GPIO_NUM, GPIO_DM_OUTPUT);
     gpiohs_set_drive_mode(SPI_IPS_LCD_RST_GPIO_NUM, GPIO_DM_OUTPUT);
     gpiohs_set_drive_mode(SPI_IPS_LCD_BL_GPIO_NUM, GPIO_DM_OUTPUT);
-
-    gpiohs_set_pin(SPI_IPS_LCD_DC_GPIO_NUM, GPIO_PV_HIGH);
-    gpiohs_set_pin(SPI_IPS_LCD_RST_GPIO_NUM, GPIO_PV_HIGH);
-    gpiohs_set_pin(SPI_IPS_LCD_BL_GPIO_NUM, GPIO_PV_HIGH);
 }
 
 static void spi_write_reg(uint8_t reg_addr, uint8_t data)
@@ -80,7 +75,7 @@ void LCD_WR_DATA(uint16_t dat)
 ******************************************************************************/
 void LCD_Address_Set(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2)
 {
-    if(USE_HORIZONTAL == 0)
+    if (USE_HORIZONTAL == 0)
     {
         ips_lcd_write_command(0x2a); //列地址设置
         LCD_WR_DATA(x1 + 52);
@@ -90,7 +85,7 @@ void LCD_Address_Set(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2)
         LCD_WR_DATA(y2 + 40);
         ips_lcd_write_command(0x2c); //储存器写
     }
-    else if(USE_HORIZONTAL == 1)
+    else if (USE_HORIZONTAL == 1)
     {
         ips_lcd_write_command(0x2a); //列地址设置
         LCD_WR_DATA(x1 + 53);
@@ -100,7 +95,7 @@ void LCD_Address_Set(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2)
         LCD_WR_DATA(y2 + 40);
         ips_lcd_write_command(0x2c); //储存器写
     }
-    else if(USE_HORIZONTAL == 2)
+    else if (USE_HORIZONTAL == 2)
     {
         ips_lcd_write_command(0x2a); //列地址设置
         LCD_WR_DATA(x1 + 40);
@@ -149,39 +144,39 @@ void LCD_DrawLine(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t c
     delta_y = y2 - y1;
     uRow = x1; //画线起点坐标
     uCol = y1;
-    if(delta_x > 0)
+    if (delta_x > 0)
         incx = 1; //设置单步方向
-    else if(delta_x == 0)
+    else if (delta_x == 0)
         incx = 0; //垂直线
     else
     {
         incx = -1;
         delta_x = -delta_x;
     }
-    if(delta_y > 0)
+    if (delta_y > 0)
         incy = 1;
-    else if(delta_y == 0)
+    else if (delta_y == 0)
         incy = 0; //水平线
     else
     {
         incy = -1;
         delta_y = -delta_x;
     }
-    if(delta_x > delta_y)
+    if (delta_x > delta_y)
         distance = delta_x; //选取基本增量坐标轴
     else
         distance = delta_y;
-    for(t = 0; t < distance + 1; t++)
+    for (t = 0; t < distance + 1; t++)
     {
         LCD_DrawPoint(uRow, uCol, color); //画点
         xerr += delta_x;
         yerr += delta_y;
-        if(xerr > distance)
+        if (xerr > distance)
         {
             xerr -= distance;
             uRow += incx;
         }
-        if(yerr > distance)
+        if (yerr > distance)
         {
             yerr -= distance;
             uCol += incy;
@@ -256,11 +251,11 @@ void ips_lcd_init(void)
     ips_lcd_write_command(0x11);
     msleep(10);
     ips_lcd_write_command(0x36);
-    if(USE_HORIZONTAL == 0)
+    if (USE_HORIZONTAL == 0)
         ips_lcd_write_data(0x00);
-    else if(USE_HORIZONTAL == 1)
+    else if (USE_HORIZONTAL == 1)
         ips_lcd_write_data(0xC0);
-    else if(USE_HORIZONTAL == 2)
+    else if (USE_HORIZONTAL == 2)
         ips_lcd_write_data(0x70);
     else
         ips_lcd_write_data(0xA0);

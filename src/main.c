@@ -39,7 +39,6 @@ int main(void)
     printk(LOG_COLOR_W "-------------------------------\r\n");
 
     ips_lcd_init();
-    ips_lcd_color_bar_test();
     LCD_ShowPicture(0, 0, LCD_W, LCD_H, gImage_nanke);
 
     printk(LOG_COLOR_W "-------------END---------------\r\n");
