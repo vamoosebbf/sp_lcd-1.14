@@ -157,4 +157,4 @@ See [LICENSE](LICENSE.md) file.
 
 | Version |    Editor    |
 | :-----: | :----------: |
-|  v0.1   | Fang Qiurong |
+|  v0.1   | vamoosebbf |
