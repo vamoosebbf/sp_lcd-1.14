@@ -8,13 +8,13 @@
 
 SP_LCD 拥有一块1.14’寸 LCD，4 线 SPI 接口控制，8P FPC(0.5mm 间距)接口的 TFT 液晶屏，180°可视角，SP_MOD 连接方式。
 
-<img src="img/sp_lcd.png" alt="sp_lcd" style="zoom:30%;" />
+<img src="img/sp_lcd.png" alt="sp_lcd" height="400" />
 
 *查看[模块规格书](doc/SP-LCD1.14规格书V1.0.pdf)获取更多特性信息*
 
 ## 接线方式
 
-![connection](img/connection.png)
+<img src="img/connection.png" height="200">
 
 |   MCU:FUN(IO)   | SP_LCD |
 | :-------------: | :----: |
@@ -29,7 +29,7 @@ SP_LCD 拥有一块1.14’寸 LCD，4 线 SPI 接口控制，8P FPC(0.5mm 间距
 
 ## 引脚图
 
-<img src="img/sp_lcd1.14_back.png" style="zoom:80%;" />
+<img src="img/sp_lcd1.14_back.png" height="250" />
 
 ## MCU 配置
 
@@ -141,11 +141,11 @@ SP_LCD 拥有一块1.14’寸 LCD，4 线 SPI 接口控制，8P FPC(0.5mm 间距
 
 * C
 
-  <img src="img/sp_lcd1.14_c.png" style="zoom:35%;" />
+  <img src="img/sp_lcd1.14_c.png" height="250" />
 
 * MaixPy
 
-  <img src="img/sp_lcd1.14_py.png" alt="sp_lcd1.14_py" style="zoom:100%;" />
+  <img src="img/sp_lcd1.14_py.png" alt="sp_lcd1.14_py" height="250" />
 
 ## 许可
 
@@ -153,6 +153,6 @@ SP_LCD 拥有一块1.14’寸 LCD，4 线 SPI 接口控制，8P FPC(0.5mm 间距
 
 ## 相关信息
 
-|  版本号  |  编辑人 |
-| :----: | :------: |
-|   v0.1    | vamoosebbf |
+| 版本号 |   编辑人   |
+| :----: | :--------: |
+|  v0.1  | vamoosebbf |
