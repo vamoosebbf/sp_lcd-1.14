@@ -8,17 +8,17 @@
 
 SP_LCD has a 1.14 'inch LCD, 4-line SPI interface control, 8P FPC(0.5mm interval) interface TFT LCD, 180° Angle of view, using SP_MOD connection.
 
-<img src="img/sp_lcd.png" alt="sp_lcd" style="zoom:50%;" />
+<img src="img/sp_lcd.png" alt="sp_lcd" height="400" />
 
 *See [Module Specification](doc/SP-LCD1.14规格书V1.0.pdf) for more information.*
 
 ## Pin figure
 
-<img src="img/sp_lcd1.14_back.png" style="zoom:80%;" />
+<img src="img/sp_lcd1.14_back.png" height="250" />
 
 ## Mode of connection
 
-![connection](img/connection.png)
+<img src="img/connection.png" height="200">
 
 |   MCU:FUN(IO)   | SP_EINK |
 | :-------------: | :-----: |
@@ -143,11 +143,11 @@ Configure IO port corresponding to MCU as SPI function pin.
 
 * C
 
-  <img src="img/sp_lcd1.14_c.png" style="zoom:67%;" />
+  <img src="img/sp_lcd1.14_c.png" height="250" />
 
 * MaixPy
 
-  <img src="img/sp_lcd1.14_py.png" alt="sp_lcd1.14_py" style="zoom:67%;" />
+  <img src="img/sp_lcd1.14_py.png" alt="sp_lcd1.14_py" height="250" />
 
 ## LICENSE
 
@@ -155,6 +155,6 @@ See [LICENSE](LICENSE.md) file.
 
 ## Other information
 
-| Version |    Editor    |
-| :-----: | :----------: |
+| Version |   Editor   |
+| :-----: | :--------: |
 |  v0.1   | vamoosebbf |
