@@ -24,7 +24,7 @@ SP_LCD 拥有一块1.14’寸 LCD，4 线 SPI 接口控制，8P FPC(0.5mm 间距
 | SPI:SCK(IO_21)  |  SCK   |
 | SPI:MOSI(IO_8)  |   SI   |
 |  GPIOHS6(IO_6)  |   BL   |
-|    2.5-4,8V     |  3.3V  |
+|    2.5~4.8V     |  3.3V  |
 |       GND       |  GND   |
 
 ## 引脚图
