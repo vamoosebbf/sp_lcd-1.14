@@ -5,8 +5,6 @@
 [中文](README_CN.md)
 
 ## Directory Structure
-<img src="img/sp_lcd.png" style="padding-right:0px;" align="right" width="" height="400" />
-
 | Directory | Description                                   |
 | :-------: | :-------------------------------------------- |
 |    doc    | Reference documentation                       |
@@ -15,6 +13,7 @@
 |    src    | C program example based on the standalone sdk |
 
 ## Introduce
+<img src="img/sp_lcd.png" style="padding-right:100px;" align="right" width="" height="400" />
 
 SP_LCD has a 1.14 'inch LCD, 4-line SPI interface control, 8P FPC(0.5mm interval) interface TFT LCD, 180° Angle of view, using SP_MOD connection.
 
