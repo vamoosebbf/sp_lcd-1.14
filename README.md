@@ -28,7 +28,7 @@ SP_LCD has a 1.14 'inch LCD, 4-line SPI interface control, 8P FPC(0.5mm interval
 | SPI:SCK(IO_21)  |   SCK   |
 | SPI:MOSI(IO_8)  |   SI    |
 |  GPIOHS6(IO_6)  |   BL    |
-|    2.5-4,8V     |  3.3V   |
+|    2.5~4.8V     |  3.3V   |
 |       GND       |   GND   |
 
 
