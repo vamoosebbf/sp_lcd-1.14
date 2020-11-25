@@ -14,7 +14,7 @@ SP_LCD has a 1.14 'inch LCD, 4-line SPI interface control, 8P FPC(0.5mm interval
 
 ## Pin figure
 
-<img src="img/sp_lcd1.14_back.png" height="30" />
+<img src="img/sp_lcd1.14_back.png" height="300" />
 
 ## Mode of connection
 
