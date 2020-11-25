@@ -71,6 +71,7 @@ SP_LCD 拥有一块1.14’寸 LCD，4 线 SPI 接口控制，8P FPC(0.5mm 间距
   busy = GPIO(GPIO.GPIOHS6, GPIO.OUT)
   rst = GPIO(GPIO.GPIOHS7, GPIO.OUT)
   ```
+  其他部分引脚在 SPI 初始化时配置。
 
 ### SPI 初始化
 
@@ -87,8 +88,6 @@ SP_LCD 拥有一块1.14’寸 LCD，4 线 SPI 接口控制，8P FPC(0.5mm 间距
                  polarity=0, phase=0, bits=8, firstbit=SPI.MSB, sck=21, mosi=8)
   # 21: SPI_IPS_LCD_SCK_PIN_NUM; 8: SPI_IPS_LCD_MOSI_PIN_NUM;
   ```
-  
-  其他部分引脚在spi初始化时配置
 
 ## SP_LCD-1.14 配置
 
