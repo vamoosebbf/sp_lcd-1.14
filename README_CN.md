@@ -14,7 +14,7 @@
 |  src   | C裸机程序示例  |
 
 ## 介绍
-<img src="img/sp_lcd.png" style="padding-right:100px;" align="right" width="" height="400" />
+<img src="img/sp_lcd.png" style="padding-right:100px;" align="right" width="" height="500" />
 
 SP_LCD 拥有一块1.14’寸 LCD，4 线 SPI 接口控制，8P FPC(0.5mm 间距)接口的 TFT 液晶屏，180°可视角，SP_MOD 连接方式。
 
