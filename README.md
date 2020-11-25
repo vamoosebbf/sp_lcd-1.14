@@ -5,7 +5,7 @@
 [中文](README_CN.md)
 
 ## Directory Structure
-<img src="img/sp_lcd.png" style="padding-right:60px;" align="right" width="" height="400" />
+<img src="img/sp_lcd.png" style="padding-right:0px;" align="right" width="" height="400" />
 
 | Directory | Description                                   |
 | :-------: | :-------------------------------------------- |
