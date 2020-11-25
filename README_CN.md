@@ -5,7 +5,7 @@
 [English](README.md)
 
 ## 目录结构
-<img src="img/sp_lcd.png" style="padding-right:100px;" align="right" width="" height="400" />
+<img src="img/sp_lcd.png" style="padding-right:60px;" align="right" width="" height="400" />
 
 |  目录  | 描述           |
 | :----: | :------------- |
