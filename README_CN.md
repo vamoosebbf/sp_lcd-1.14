@@ -4,17 +4,29 @@
 
 [English](README.md)
 
+## 目录结构
+
+|  目录  | 描述           |
+| :----: | :------------- |
+|  doc   | 参考文档       |
+|  img   | 图片           |
+| script | MaixPy脚本示例 |
+|  src   | C裸机程序示例  |
+
 ## 介绍
+<img src="img/sp_lcd.png" style="padding-right:100px;" align="right" width="" height="400" />
 
 SP_LCD 拥有一块1.14’寸 LCD，4 线 SPI 接口控制，8P FPC(0.5mm 间距)接口的 TFT 液晶屏，180°可视角，SP_MOD 连接方式。
 
-<img src="img/sp_lcd.png" alt="sp_lcd" height="400" />
-
 *查看[模块规格书](doc/SP-LCD1.14规格书V1.0.pdf)获取更多特性信息*
+
+## 引脚图
+
+<img src="img/sp_lcd1.14_back.png" height="300" />
 
 ## 接线方式
 
-<img src="img/connection.png" height="200">
+<img src="img/connection.png" height="250">
 
 |   MCU:FUN(IO)   | SP_LCD |
 | :-------------: | :----: |
@@ -26,10 +38,6 @@ SP_LCD 拥有一块1.14’寸 LCD，4 线 SPI 接口控制，8P FPC(0.5mm 间距
 |  GPIOHS6(IO_6)  |   BL   |
 |    2.5~4.8V     |  3.3V  |
 |       GND       |  GND   |
-
-## 引脚图
-
-<img src="img/sp_lcd1.14_back.png" height="250" />
 
 ## MCU 配置
 
@@ -131,10 +139,10 @@ SP_LCD 拥有一块1.14’寸 LCD，4 线 SPI 接口控制，8P FPC(0.5mm 间距
 
 ## 运行环境
 
-|  语言  |  开发板  |          SDK/固件版本          |
-| :----: | :------: | :----------------------------: |
+|  语言  | 开发板   | SDK/固件版本                   |
+| :----: | :------- | :----------------------------- |
 |   C    | MaixCube | kendryte-standalone-sdk v0.5.6 |
-| MaixPy | MaixCube |         maixpy v0.5.1          |
+| MaixPy | MaixCube | maixpy v0.5.1                  |
 
 ## 运行结果
 

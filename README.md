@@ -4,11 +4,18 @@
 
 [中文](README_CN.md)
 
+## Directory Structure
+| Directory | Description                                   |
+| :-------: | :-------------------------------------------- |
+|    doc    | Reference documentation                       |
+|    img    | Images                                        |
+|  script   | Maixpy script example                         |
+|    src    | C program example based on the standalone sdk |
+
 ## Introduce
+<img src="img/sp_lcd.png" style="padding-right:100px;" align="right" width="" height="400" />
 
 SP_LCD has a 1.14 'inch LCD, 4-line SPI interface control, 8P FPC(0.5mm interval) interface TFT LCD, 180° Angle of view, using SP_MOD connection.
-
-<img src="img/sp_lcd.png" alt="sp_lcd" height="600" />
 
 *See [Module Specification](doc/SP-LCD1.14规格书V1.0.pdf) for more information.*
 
@@ -30,8 +37,6 @@ SP_LCD has a 1.14 'inch LCD, 4-line SPI interface control, 8P FPC(0.5mm interval
 |  GPIOHS6(IO_6)  |   BL    |
 |    2.5~4.8V     |  3.3V   |
 |       GND       |   GND   |
-
-
 
 ## MCU configuration
 
@@ -134,10 +139,10 @@ Configure IO port corresponding to MCU as SPI function pin.
 
 ## Runtime environments
 
-| Language |  Boards  |      SDK/Firmware version      |
-| :------: | :------: | :----------------------------: |
+| Language | Boards   | SDK/Firmware version           |
+| :------: | :------- | :----------------------------- |
 |    C     | MaixCube | kendryte-standalone-sdk v0.5.6 |
-|  MaixPy  | MaixCube |         maixpy v0.5.1          |
+|  MaixPy  | MaixCube | maixpy v0.5.1                  |
 
 ## Result
 
