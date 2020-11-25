@@ -6,6 +6,7 @@
 
 ## Directory Structure
 <img src="img/sp_lcd.png" style="padding-right:100px;" align="right" width="" height="400" />
+
 | Directory | Description                                   |
 | :-------: | :-------------------------------------------- |
 |    doc    | Reference documentation                       |
