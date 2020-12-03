@@ -119,7 +119,7 @@ Configure IO port corresponding to MCU as SPI function pin.
 
   ```python
     # init
-    ips = SpiIps(spi1, cs, dc, rst, busy, IPS_WIDTH, IPS_HEIGHT, IPS_MODE)
+    ips = SPLCD114(spi1, cs, dc, rst, busy, IPS_WIDTH, IPS_HEIGHT, IPS_MODE)
 
     # create an 'image' and fill it
     img = image.Image()

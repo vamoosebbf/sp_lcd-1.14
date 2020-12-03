@@ -6,7 +6,7 @@ IPS_WIDTH = const(240)
 IPS_HEIGHT = const(135)
 IPS_MODE = const(3) # 0 1 horizontal 2 3 vertical
 
-class SpiIps:
+class SPLCD114:
     def __init__(self, spi, cs, dc, rst, busy, width, height, mode):
         self.spi = spi
         self.cs = cs
@@ -210,7 +210,7 @@ if __name__ == "__main__":
     busy = GPIO(GPIO.GPIOHS6, GPIO.OUT)
     rst = GPIO(GPIO.GPIOHS7, GPIO.OUT)
 
-    ips = SpiIps(spi1, cs, dc, rst, busy, IPS_WIDTH, IPS_HEIGHT, IPS_MODE)
+    ips = SPLCD114(spi1, cs, dc, rst, busy, IPS_WIDTH, IPS_HEIGHT, IPS_MODE)
     
     img = image.Image()
     img.draw_line(0, 0, 100, 100)
