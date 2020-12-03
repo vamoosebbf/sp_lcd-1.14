@@ -169,26 +169,37 @@ if __name__ == "__main__":
     from Maix import GPIO
     from fpioa_manager import fm
     from machine import SPI
-    import lcd
+    from micropython import const
 
-    # #  SPMOD Interface
-    # #  # [4|5] [7  |VCC] [RST|3V3]
-    # #  # [3|6] [15 | 21] [D/C|SCK]
-    # #  # [2|7] [20 |  8] [CS |SI ]
-    # #  # [1|8] [GND|  6] [GND|BL ]
+    # SPMOD  |MaixCube
+    # [7  |VCC] [RST|3V3]
+    # [15 | 21] [D/C|SCK]
+    # [20 |  8] [CS |SI ]
+    # [GND|  6] [GND|BL ]
 
-    # 21: SPI_IPS_LCD_SCK_PIN_NUM; 8: SPI_IPS_LCD_MOSI_PIN_NUM;
-    spi1 = SPI(SPI.SPI1, mode=SPI.MODE_MASTER, baudrate=600 * 1000,
-               polarity=0, phase=0, bits=8, firstbit=SPI.MSB, sck=21, mosi=8)
+    ################### config ###################
+    SPI_LCD_NUM = SPI.SPI1
+    SPI_LCD_DC_PIN_NUM = const(15)
+    SPI_LCD_BUSY_PIN_NUM = const(6)
+    SPI_LCD_RST_PIN_NUM = const(7)
+    SPI_LCD_CS_PIN_NUM = const(20)
+    SPI_LCD_SCK_PIN_NUM = const(21)
+    SPI_LCD_MOSI_PIN_NUM = const(8)
+    SPI_LCD_FREQ_KHZ = const(600)
+    ##############################################
 
-    # 20: SPI_IPS_LCD_SS_PIN_NUM;
-    fm.register(20, fm.fpioa.GPIOHS20, force=True)
-    # 15: SPI_IPS_LCD_DC_PIN_NUM;
-    fm.register(15, fm.fpioa.GPIOHS15, force=True)
-    # 6: SPI_IPS_LCD_BUSY_PIN_NUM;
-    fm.register(6, fm.fpioa.GPIOHS6, force=True)
-    # 7: SPI_IPS_LCD_RST_PIN_NUM;
-    fm.register(7, fm.fpioa.GPIOHS7, force=True)
+    # 21: SPI_LCD_SCK_PIN_NUM; 8: SPI_LCD_MOSI_PIN_NUM;
+    spi1 = SPI(SPI_LCD_NUM, mode=SPI.MODE_MASTER, baudrate=SPI_LCD_FREQ_KHZ * 1000,
+               polarity=0, phase=0, bits=8, firstbit=SPI.MSB, sck=SPI_LCD_SCK_PIN_NUM, mosi=SPI_LCD_MOSI_PIN_NUM)
+
+    # 20: SPI_LCD_CS_PIN_NUM;
+    fm.register(SPI_LCD_CS_PIN_NUM, fm.fpioa.GPIOHS20, force=True)
+    # 15: SPI_LCD_DC_PIN_NUM;
+    fm.register(SPI_LCD_DC_PIN_NUM, fm.fpioa.GPIOHS15, force=True)
+    # 6: SPI_LCD_BUSY_PIN_NUM;
+    fm.register(SPI_LCD_BUSY_PIN_NUM, fm.fpioa.GPIOHS6, force=True)
+    # 7: SPI_LCD_RST_PIN_NUM;
+    fm.register(SPI_LCD_RST_PIN_NUM, fm.fpioa.GPIOHS7, force=True)
 
     # set gpiohs work mode to output mode
     cs = GPIO(GPIO.GPIOHS20, GPIO.OUT)
@@ -196,7 +207,6 @@ if __name__ == "__main__":
     busy = GPIO(GPIO.GPIOHS6, GPIO.OUT)
     rst = GPIO(GPIO.GPIOHS7, GPIO.OUT)
 
-    lcd.init()
     ips = SpiIps(spi1, cs, dc, rst, busy, IPS_WIDTH, IPS_HEIGHT, IPS_MODE)
     ips.init()
 
@@ -209,7 +219,4 @@ if __name__ == "__main__":
     img.draw_circle(170, 70, 8)
     img.draw_circle(110, 40, 15)
 
-    print('ips test')
-
-    lcd.display(img)
     ips.display(img)

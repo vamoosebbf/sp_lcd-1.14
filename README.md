@@ -63,20 +63,20 @@ Configure IO port corresponding to MCU as SPI function pin.
 * MaixPy
 
   ```python
-  # 20: SPI_IPS_LCD_SS_PIN_NUM;
-  fm.register(20, fm.fpioa.GPIOHS20, force=True)
-  # 15: SPI_IPS_LCD_DC_PIN_NUM;
-  fm.register(15, fm.fpioa.GPIOHS15, force=True)
-  # 6: SPI_IPS_LCD_BUSY_PIN_NUM;
-  fm.register(6, fm.fpioa.GPIOHS6, force=True)
-  # 7: SPI_IPS_LCD_RST_PIN_NUM;
-  fm.register(7, fm.fpioa.GPIOHS7, force=True)
-  
-  # set gpiohs work mode to output mode
-  cs = GPIO(GPIO.GPIOHS20, GPIO.OUT)
-  dc = GPIO(GPIO.GPIOHS15, GPIO.OUT)
-  busy = GPIO(GPIO.GPIOHS6, GPIO.OUT)
-  rst = GPIO(GPIO.GPIOHS7, GPIO.OUT)
+    # 20: SPI_LCD_CS_PIN_NUM;
+    fm.register(SPI_LCD_CS_PIN_NUM, fm.fpioa.GPIOHS20, force=True)
+    # 15: SPI_LCD_DC_PIN_NUM;
+    fm.register(SPI_LCD_DC_PIN_NUM, fm.fpioa.GPIOHS15, force=True)
+    # 6: SPI_LCD_BUSY_PIN_NUM;
+    fm.register(SPI_LCD_BUSY_PIN_NUM, fm.fpioa.GPIOHS6, force=True)
+    # 7: SPI_LCD_RST_PIN_NUM;
+    fm.register(SPI_LCD_RST_PIN_NUM, fm.fpioa.GPIOHS7, force=True)
+
+    # set gpiohs work mode to output mode
+    cs = GPIO(GPIO.GPIOHS20, GPIO.OUT)
+    dc = GPIO(GPIO.GPIOHS15, GPIO.OUT)
+    busy = GPIO(GPIO.GPIOHS6, GPIO.OUT)
+    rst = GPIO(GPIO.GPIOHS7, GPIO.OUT)
   ```
   
   Some of the pins are also configured during SPI initialization
@@ -97,9 +97,7 @@ Configure IO port corresponding to MCU as SPI function pin.
   # 21: SPI_IPS_LCD_SCK_PIN_NUM; 8: SPI_IPS_LCD_MOSI_PIN_NUM;
   ```
 
-## SP_LCD-1.14 configuration
-
-### Usage
+## Usage
 
 * Process
 
@@ -116,7 +114,7 @@ Configure IO port corresponding to MCU as SPI function pin.
   
 * MaixPy
 
-  It is mainly used to configure the SPI it needs. The width and height of the screen (240/135 is the maximum value), IPS_MODE is used to set the direction of the screen, 0/1 is horizontal, and 2/3 is vertical.
+  It is mainly used to configure the SPI it needs. The width and height of the screen (240/135), IPS_MODE is used to set the direction of the screen, 0/1 is horizontal, and 2/3 is vertical.
 
   ```python
   # init
@@ -153,6 +151,48 @@ Configure IO port corresponding to MCU as SPI function pin.
 * MaixPy
 
   <img src="img/sp_lcd1.14_py.png" alt="sp_lcd1.14_py" height="250" />
+
+## Transplant
+  
+The following parameters need to be modified.
+
+* C
+
+```c
+  // board_config.h
+  #define SPI_INDEX           1
+  #define SPI_SCLK_RATE       600*1000
+  #define SPI_CHIP_SELECT_NSS 0 // SPI_CHIP_SELECT_0
+
+  #define SPI_IPS_LCD_CS_PIN_NUM      20
+  #define SPI_IPS_LCD_SCK_PIN_NUM     21
+  #define SPI_IPS_LCD_MOSI_PIN_NUM    8
+
+  #define SPI_IPS_LCD_DC_PIN_NUM     15
+  #define SPI_IPS_LCD_BL_PIN_NUM      6
+  #define SPI_IPS_LCD_RST_PIN_NUM     7
+
+  #define SPI_IPS_LCD_DC_GPIO_NUM     15
+  #define SPI_IPS_LCD_BL_GPIO_NUM     6
+  #define SPI_IPS_LCD_RST_GPIO_NUM    7
+
+  #define USE_HORIZONTAL 3    // 0/1 is horizontal, and 2/3 is vertical.
+```
+
+* Maixpy
+
+```python
+  ################### config ###################
+  SPI_LCD_NUM = SPI.SPI1
+  SPI_LCD_DC_PIN_NUM = const(15)
+  SPI_LCD_BUSY_PIN_NUM = const(6)
+  SPI_LCD_RST_PIN_NUM = const(7)
+  SPI_LCD_CS_PIN_NUM = const(20)
+  SPI_LCD_SCK_PIN_NUM = const(21)
+  SPI_LCD_MOSI_PIN_NUM = const(8)
+  SPI_LCD_FREQ_KHZ = const(600)
+  ##############################################
+```
 
 ## LICENSE
 
