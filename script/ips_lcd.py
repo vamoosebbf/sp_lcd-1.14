@@ -1,5 +1,7 @@
 from time import sleep_ms
 import image
+from micropython import const
+
 IPS_WIDTH = const(240)
 IPS_HEIGHT = const(135)
 IPS_MODE = const(3) # 0 1 horizontal 2 3 vertical
@@ -14,6 +16,7 @@ class SpiIps:
         self.width = width
         self.height = height
         self.mode = mode
+        self.init()
 
     def init(self):
         self.rst.value(0)
@@ -208,8 +211,7 @@ if __name__ == "__main__":
     rst = GPIO(GPIO.GPIOHS7, GPIO.OUT)
 
     ips = SpiIps(spi1, cs, dc, rst, busy, IPS_WIDTH, IPS_HEIGHT, IPS_MODE)
-    ips.init()
-
+    
     img = image.Image()
     img.draw_line(0, 0, 100, 100)
     img.draw_circle(50, 50, 20)

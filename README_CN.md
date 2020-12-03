@@ -94,9 +94,9 @@ SP_LCD 拥有一块1.14’寸 LCD，4 线 SPI 接口控制，8P FPC(0.5mm 间距
 * MaixPy 示例
 
   ```python
-  spi1 = SPI(SPI.SPI1, mode=SPI.MODE_MASTER, baudrate=600 * 1000,
-                 polarity=0, phase=0, bits=8, firstbit=SPI.MSB, sck=21, mosi=8)
-  # 21: SPI_IPS_LCD_SCK_PIN_NUM; 8: SPI_IPS_LCD_MOSI_PIN_NUM;
+    # 21: SPI_LCD_SCK_PIN_NUM; 8: SPI_LCD_MOSI_PIN_NUM;
+    spi1 = SPI(SPI_LCD_NUM, mode=SPI.MODE_MASTER, baudrate=SPI_LCD_FREQ_KHZ * 1000,
+               polarity=0, phase=0, bits=8, firstbit=SPI.MSB, sck=SPI_LCD_SCK_PIN_NUM, mosi=SPI_LCD_MOSI_PIN_NUM)
   ```
 
 ## 使用方式
@@ -121,17 +121,10 @@ SP_LCD 拥有一块1.14’寸 LCD，4 线 SPI 接口控制，8P FPC(0.5mm 间距
   ```python
   # init
   ips = SpiIps(spi1, cs, dc, rst, busy, IPS_WIDTH, IPS_HEIGHT, IPS_MODE)
-  ips.init()
   
   # create an 'image' and fill it
   img = image.Image()
-  img.draw_line(0, 0, 100, 100)
-  img.draw_circle(50, 50, 20)
   img.draw_rectangle(80, 80, 30, 30)
-  img.draw_circle(70, 70, 8)
-  img.draw_circle(70, 160, 15)
-  img.draw_circle(170, 70, 8)
-  img.draw_circle(110, 40, 15)
   
   # display
   ips.display(img)

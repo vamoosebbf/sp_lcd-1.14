@@ -93,9 +93,9 @@ Configure IO port corresponding to MCU as SPI function pin.
 * MaixPy
 
   ```python
-  spi1 = SPI(SPI.SPI1, mode=SPI.MODE_MASTER, baudrate=600 * 1000,
-                 polarity=0, phase=0, bits=8, firstbit=SPI.MSB, sck=21, mosi=8)
-  # 21: SPI_IPS_LCD_SCK_PIN_NUM; 8: SPI_IPS_LCD_MOSI_PIN_NUM;
+    # 21: SPI_LCD_SCK_PIN_NUM; 8: SPI_LCD_MOSI_PIN_NUM;
+    spi1 = SPI(SPI_LCD_NUM, mode=SPI.MODE_MASTER, baudrate=SPI_LCD_FREQ_KHZ * 1000,
+               polarity=0, phase=0, bits=8, firstbit=SPI.MSB, sck=SPI_LCD_SCK_PIN_NUM, mosi=SPI_LCD_MOSI_PIN_NUM)
   ```
 
 ## Usage
@@ -109,8 +109,8 @@ Configure IO port corresponding to MCU as SPI function pin.
 * C
 
   ```c
-  ips_lcd_init(); // init
-  LCD_ShowPicture(0, 0, LCD_W, LCD_H, gImage_nanke); // display
+    ips_lcd_init(); // init
+    LCD_ShowPicture(0, 0, LCD_W, LCD_H, gImage_nanke); // display
   ```
   
 * MaixPy
@@ -118,22 +118,15 @@ Configure IO port corresponding to MCU as SPI function pin.
   It is mainly used to configure the SPI it needs. The width and height of the screen (240/135), IPS_MODE is used to set the direction of the screen, 0/1 is horizontal, and 2/3 is vertical.
 
   ```python
-  # init
-  ips = SpiIps(spi1, cs, dc, rst, busy, IPS_WIDTH, IPS_HEIGHT, IPS_MODE)
-  ips.init()
-  
-  # create an 'image' and fill it
-  img = image.Image()
-  img.draw_line(0, 0, 100, 100)
-  img.draw_circle(50, 50, 20)
-  img.draw_rectangle(80, 80, 30, 30)
-  img.draw_circle(70, 70, 8)
-  img.draw_circle(70, 160, 15)
-  img.draw_circle(170, 70, 8)
-  img.draw_circle(110, 40, 15)
-  
-  # display
-  ips.display(img)
+    # init
+    ips = SpiIps(spi1, cs, dc, rst, busy, IPS_WIDTH, IPS_HEIGHT, IPS_MODE)
+
+    # create an 'image' and fill it
+    img = image.Image()
+    img.draw_rectangle(80, 80, 30, 30)
+
+    # display
+    ips.display(img)
   ```
 
 ## Runtime environments
